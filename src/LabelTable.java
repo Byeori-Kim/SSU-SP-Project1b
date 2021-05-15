@@ -17,9 +17,13 @@ public class LabelTable {
 	 *                 modifylable()을 통해서 이루어져야 한다.
 	 */
 	public void putName(String label, int location) {
+<<<<<<< HEAD
 		this.label.add(label);
 		Integer addr = new Integer(location);
 		locationList.add(addr);
+=======
+
+>>>>>>> ff8d1842b32e883bd334a3890a27d06792fe59a9
 	}
 
 	/**
@@ -29,12 +33,16 @@ public class LabelTable {
 	 * @param newLocation : 새로 바꾸고자 하는 주소값
 	 */
 	public void modifyName(String lable, int newLocation) {
+<<<<<<< HEAD
 		for(int i =0; i<symbolList.size(); i++) {
 			if(symbolList.get(i).equals(lable)) {
 				Integer new_addr = new Integer(newLocation);
 				locationList.set(i, new_addr);
 			}
 		}
+=======
+
+>>>>>>> ff8d1842b32e883bd334a3890a27d06792fe59a9
 	}
 
 	/**
@@ -45,6 +53,7 @@ public class LabelTable {
 	 */
 	public int search(String label) {
 		int address = 0;
+<<<<<<< HEAD
 		if(symbolList != null) {
 			for (int i=0; i < this.label.size(); i++) {
 				if(label.equals(this.label.get(i))) {
@@ -55,6 +64,9 @@ public class LabelTable {
 		else {
 			address = -1;
 		}
+=======
+		// ...
+>>>>>>> ff8d1842b32e883bd334a3890a27d06792fe59a9
 		return address;
 	}
 

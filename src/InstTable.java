@@ -3,7 +3,10 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+<<<<<<< HEAD
 import java.io.BufferReader;
+=======
+>>>>>>> ff8d1842b32e883bd334a3890a27d06792fe59a9
 
 
 /**
@@ -16,7 +19,10 @@ public class InstTable {
 	 */
 	HashMap<String, Instruction> instMap;
 
+<<<<<<< HEAD
 	//private int inst_index;
+=======
+>>>>>>> ff8d1842b32e883bd334a3890a27d06792fe59a9
 	/**
 	 * 클래스 초기화. 파싱을 동시에 처리한다.
 	 * 
@@ -32,6 +38,7 @@ public class InstTable {
 	 * 입력받은 이름의 파일을 열고 해당 내용을 파싱하여 instMap에 저장한다.
 	 */
 	public void openFile(String fileName) {
+<<<<<<< HEAD
 		try {
 			File file = new File(fileName);
 			FileReader filereader = new FileReader(file);
@@ -45,6 +52,9 @@ public class InstTable {
 		} catch (IOException e) {
 			System.out.println("There is errer" + e);
 		}
+=======
+		// ...
+>>>>>>> ff8d1842b32e883bd334a3890a27d06792fe59a9
 	}
 
 	// get, set, search 등의 함수는 자유 구현
@@ -57,7 +67,11 @@ public class InstTable {
  */
 class Instruction {
 
+<<<<<<< HEAD
 	String inst; 
+=======
+	String instruction; 
+>>>>>>> ff8d1842b32e883bd334a3890a27d06792fe59a9
 	int format;
 	int opcode; 
 	int numberOfOperand; 
@@ -77,6 +91,7 @@ class Instruction {
 	 * @param line : instruction 명세파일로부터 한줄씩 가져온 문자열
 	 */
 	public void parsing(String line) {
+<<<<<<< HEAD
 		try {
 			String[] split = line.split(" ")
 			inst = split[0];
@@ -93,4 +108,11 @@ class Instruction {
 		}
 	}
 
+=======
+		// TODO Auto-generated method stub
+	}
+
+	// 그 외 함수 자유 구현
+
+>>>>>>> ff8d1842b32e883bd334a3890a27d06792fe59a9
 }

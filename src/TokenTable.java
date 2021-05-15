@@ -34,10 +34,14 @@ public class TokenTable {
 	 * @param instTab   : instruction 명세가 정의된 instTable
 	 */
 	public TokenTable(LabelTable symTab, LabelTable literalTab, InstTable instTab) {
+<<<<<<< HEAD
 		this.symTab = symTab;
 		this.literalTab = literalTab;
 		this.instTab = instTab;
 		tokenList = new ArrayList<Token>();
+=======
+		// ...
+>>>>>>> ff8d1842b32e883bd334a3890a27d06792fe59a9
 	}
 
 	/**
@@ -66,6 +70,7 @@ public class TokenTable {
 	 * @param index
 	 */
 	public void makeObjectCode(int index) {
+<<<<<<< HEAD
 		if(instTab.instMap.containsKey(tokenList.get(index).operator)) { 				
 			int code = instTab.instMap.get(tokenList.get(index).operator).opcode << 16; 
 			code += getToken(index).nixbpe << 12;
@@ -93,6 +98,9 @@ public class TokenTable {
 			}				
 			getToken(index).objectCode = String.format("%06X",ob_code);
 	}
+=======
+		// ...
+>>>>>>> ff8d1842b32e883bd334a3890a27d06792fe59a9
 	}
 
 	/**
@@ -130,6 +138,10 @@ class Token {
 	 * @param line 문장단위로 저장된 프로그램 코드
 	 */
 	public Token(String line) {
+<<<<<<< HEAD
+=======
+		// initialize ???
+>>>>>>> ff8d1842b32e883bd334a3890a27d06792fe59a9
 		parsing(line);
 	}
 
@@ -139,6 +151,7 @@ class Token {
 	 * @param line 문장단위로 저장된 프로그램 코드.
 	 */
 	public void parsing(String line) {
+<<<<<<< HEAD
 		operand = new String[3];
 		
 		if(line.contains(".")) { //�ּ��� �κ�
@@ -197,6 +210,9 @@ class Token {
 				}
 			}
 		}
+=======
+
+>>>>>>> ff8d1842b32e883bd334a3890a27d06792fe59a9
 	}
 
 	/**
@@ -209,9 +225,13 @@ class Token {
 	 * @param value : 집어넣고자 하는 값. 1또는 0으로 선언한다.
 	 */
 	public void setFlag(int flag, int value) {
+<<<<<<< HEAD
 		if (value == 1 ) { 
 			nixbpe = (char) (nixbpe | flag);
 		}
+=======
+		// ...
+>>>>>>> ff8d1842b32e883bd334a3890a27d06792fe59a9
 	}
 
 	/**

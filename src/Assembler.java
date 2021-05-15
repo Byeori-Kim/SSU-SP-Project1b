@@ -1,7 +1,10 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+<<<<<<< HEAD
 import java.io.*;
+=======
+>>>>>>> ff8d1842b32e883bd334a3890a27d06792fe59a9
 
 /**
  * Assembler: 이 프로그램은 SIC/XE 머신을 위한 Assembler 프로그램의 메인루틴이다. 프로그램의 수행 작업은 다음과 같다.
@@ -80,6 +83,7 @@ public class Assembler {
 	 * 
 	 * @param inputFile : input 파일 이름.
 	 */
+<<<<<<< HEAD
 	int line_num = 0;
 	private void loadInputFile(String inputFile) {
 		try {
@@ -95,6 +99,10 @@ public class Assembler {
 		catch(IOException e){
 			System.out.println("There is errer" + e);
 		}
+=======
+	private void loadInputFile(String inputFile) {
+		// TODO Auto-generated method stub
+>>>>>>> ff8d1842b32e883bd334a3890a27d06792fe59a9
 
 	}
 
@@ -120,6 +128,7 @@ public class Assembler {
 	 * @param fileName : 저장되는 파일 이름
 	 */
 	private void printSymbolTable(String fileName) {
+<<<<<<< HEAD
 		try{
 			File file = new File(fileName);
              
@@ -137,6 +146,9 @@ public class Assembler {
         }catch(IOException e){
 			System.out.println("There is errer" + e);
         }
+=======
+		// TODO Auto-generated method stub
+>>>>>>> ff8d1842b32e883bd334a3890a27d06792fe59a9
 
 	}
 
@@ -146,6 +158,7 @@ public class Assembler {
 	 * @param fileName : 저장되는 파일 이름
 	 */
 	private void printLiteralTable(String fileName) {
+<<<<<<< HEAD
 		try{
 			File file = new File(fileName);
              
@@ -162,6 +175,9 @@ public class Assembler {
 			System.out.println("There is errer" + e);
 
         }
+=======
+		// TODO Auto-generated method stub
+>>>>>>> ff8d1842b32e883bd334a3890a27d06792fe59a9
 
 	}
 
