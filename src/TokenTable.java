@@ -34,14 +34,10 @@ public class TokenTable {
 	 * @param instTab   : instruction 명세가 정의된 instTable
 	 */
 	public TokenTable(LabelTable symTab, LabelTable literalTab, InstTable instTab) {
-<<<<<<< HEAD
 		this.symTab = symTab;
 		this.literalTab = literalTab;
 		this.instTab = instTab;
 		tokenList = new ArrayList<Token>();
-=======
-		// ...
->>>>>>> ff8d1842b32e883bd334a3890a27d06792fe59a9
 	}
 
 	/**
@@ -70,7 +66,6 @@ public class TokenTable {
 	 * @param index
 	 */
 	public void makeObjectCode(int index) {
-<<<<<<< HEAD
 		if(instTab.instMap.containsKey(tokenList.get(index).operator)) { 				
 			int code = instTab.instMap.get(tokenList.get(index).operator).opcode << 16; 
 			code += getToken(index).nixbpe << 12;
@@ -98,9 +93,6 @@ public class TokenTable {
 			}				
 			getToken(index).objectCode = String.format("%06X",ob_code);
 	}
-=======
-		// ...
->>>>>>> ff8d1842b32e883bd334a3890a27d06792fe59a9
 	}
 
 	/**
@@ -138,10 +130,6 @@ class Token {
 	 * @param line 문장단위로 저장된 프로그램 코드
 	 */
 	public Token(String line) {
-<<<<<<< HEAD
-=======
-		// initialize ???
->>>>>>> ff8d1842b32e883bd334a3890a27d06792fe59a9
 		parsing(line);
 	}
 
@@ -151,10 +139,9 @@ class Token {
 	 * @param line 문장단위로 저장된 프로그램 코드.
 	 */
 	public void parsing(String line) {
-<<<<<<< HEAD
 		operand = new String[3];
 		
-		if(line.contains(".")) { //�ּ��� �κ�
+		if(line.contains(".")) { 
 			label = ""; 
 			operator = ""; 
 		}
@@ -166,13 +153,13 @@ class Token {
 			label = line.split("\t")[0];
 			operator = line.split("\t")[1];
 		}
-		else { //�ּ��� �ƴ� ���������� operator�� �ִ� ���
+		else { 
 			label = line.split("\t")[0];
 			operator = line.split("\t")[1];
-			if(line.split("\t")[2].contains(",")) { //operand�� ������ �ִ� ���(2, 3��)
-				int idx = line.split("\t")[2].indexOf(","); //ó�� ��ǥ �������� �ڸ���
-				String ifthree = line.split("\t")[2].substring(idx+1); //ó�� ��ǥ ���� �޺κ� ���
-				if(ifthree.contains(",")) { //operand�� 3���� ���
+			if(line.split("\t")[2].contains(",")) { 
+				int idx = line.split("\t")[2].indexOf(","); 
+				String ifthree = line.split("\t")[2].substring(idx+1); 
+				if(ifthree.contains(",")) { 
 					operand = new String[3];
 					String[] array2 = line.split("\t")[2].split(",",3);
 					operand[0] = array2[0];
@@ -181,23 +168,23 @@ class Token {
 					
 					int idx2 = line.split(",")[1].indexOf(",");
 					String ifcomment = line.split(",")[1].substring(idx2+1);
-					if(ifcomment.contains("\t")) { //comment�� �ִ� ���
+					if(ifcomment.contains("\t")) { 
 						comment = line.split("\t")[3];
 					}
 				}
-				else { //operand�� 2���� ���
+				else { 
 					operand = new String[3];
 					String[] array2 = line.split("\t")[2].split(",",3);
 					operand[0] = array2[0];
 					operand[1] = array2[1];
 					int idx2 = line.split(",")[1].indexOf(",");
 					String ifcomment = line.split(",")[1].substring(idx2+1);
-					if(ifcomment.contains("\t")) { //comment�� �ִ� ���
+					if(ifcomment.contains("\t")) { 
 						comment = line.split("\t")[3];
 					}
 				}
 			}
-			else {//operand������ 0, 1���� ���
+			else {
 				operand = new String[1];
 				operand[0] = line.split("\t")[2];
 				
@@ -210,9 +197,6 @@ class Token {
 				}
 			}
 		}
-=======
-
->>>>>>> ff8d1842b32e883bd334a3890a27d06792fe59a9
 	}
 
 	/**
@@ -225,13 +209,9 @@ class Token {
 	 * @param value : 집어넣고자 하는 값. 1또는 0으로 선언한다.
 	 */
 	public void setFlag(int flag, int value) {
-<<<<<<< HEAD
 		if (value == 1 ) { 
 			nixbpe = (char) (nixbpe | flag);
 		}
-=======
-		// ...
->>>>>>> ff8d1842b32e883bd334a3890a27d06792fe59a9
 	}
 
 	/**

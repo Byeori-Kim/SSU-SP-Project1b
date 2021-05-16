@@ -67,11 +67,7 @@ public class InstTable {
  */
 class Instruction {
 
-<<<<<<< HEAD
 	String inst; 
-=======
-	String instruction; 
->>>>>>> ff8d1842b32e883bd334a3890a27d06792fe59a9
 	int format;
 	int opcode; 
 	int numberOfOperand; 
@@ -91,7 +87,6 @@ class Instruction {
 	 * @param line : instruction 명세파일로부터 한줄씩 가져온 문자열
 	 */
 	public void parsing(String line) {
-<<<<<<< HEAD
 		try {
 			String[] split = line.split(" ")
 			inst = split[0];
@@ -108,11 +103,4 @@ class Instruction {
 		}
 	}
 
-=======
-		// TODO Auto-generated method stub
-	}
-
-	// 그 외 함수 자유 구현
-
->>>>>>> ff8d1842b32e883bd334a3890a27d06792fe59a9
 }
