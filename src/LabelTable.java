@@ -7,6 +7,8 @@ public class LabelTable {
 	ArrayList<String> label;
 	ArrayList<Integer> locationList;
 	// external 선언 및 처리방법을 구현한다.
+	ArrayList<String> extdefList;
+	ArrayList<String> extrefList;
 
 	/**
 	 * 새로운 symbol과 literal을 table에 추가한다.
@@ -18,7 +20,8 @@ public class LabelTable {
 	 */
 	public void putName(String label, int location) {
 		this.label.add(label);
-		Integer addr = new Integer(location);
+		int addr = location;
+		//Integer addr = new Integer(location);
 		locationList.add(addr);
 	}
 
@@ -29,9 +32,9 @@ public class LabelTable {
 	 * @param newLocation : 새로 바꾸고자 하는 주소값
 	 */
 	public void modifyName(String lable, int newLocation) {
-		for(int i =0; i<symbolList.size(); i++) {
-			if(symbolList.get(i).equals(lable)) {
-				Integer new_addr = new Integer(newLocation);
+		for(int i =0; i<label.size(); i++) {
+			if(label.get(i).equals(lable)) {
+				Integer new_addr = newLocation;
 				locationList.set(i, new_addr);
 			}
 		}
@@ -45,7 +48,7 @@ public class LabelTable {
 	 */
 	public int search(String label) {
 		int address = 0;
-		if(symbolList != null) {
+		if(label != null) {
 			for (int i=0; i < this.label.size(); i++) {
 				if(label.equals(this.label.get(i))) {
 					address = locationList.get(i);

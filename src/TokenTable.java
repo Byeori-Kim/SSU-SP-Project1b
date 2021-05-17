@@ -1,3 +1,6 @@
+import org.jetbrains.annotations.NotNull;
+
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
@@ -30,7 +33,7 @@ public class TokenTable {
 	 * 초기화하면서 symTable과 instTable을 링크시킨다.
 	 * 
 	 * @param symTab    : 해당 section과 연결되어있는 symbol table
-	 * @param literaTab : 해당 section과 연결되어있는 literal table
+	 * @param literalTab : 해당 section과 연결되어있는 literal table
 	 * @param instTab   : instruction 명세가 정의된 instTable
 	 */
 	public TokenTable(LabelTable symTab, LabelTable literalTab, InstTable instTab) {
@@ -72,8 +75,8 @@ public class TokenTable {
 			if(tokenList.get(index).operand[0].contains("#")) {
 				code += Integer.parseInt(tokenList.get(index).operand[0].substring(1));
 			}
-			for(int i = 0; i < symTab.symbolList.size(); i++) {
-				if(tokenList.get(index).operand[0].contains(symTab.symbolList.get(i))) { 
+			for(int i = 0; i < symTab.label.size(); i++) {
+				if(tokenList.get(index).operand[0].contains(symTab.label.get(i))) {
 					int addr = symTab.locationList.get(i) - tokenList.get(index+1).location;
 					if(addr > 0) {
 						code += addr;
@@ -85,13 +88,13 @@ public class TokenTable {
 					}
 				}
 			}
-			for(int i = 0; i < literalTab.literalList.size(); i++) {
-				if(tokenList.get(index).operand[0].contains(literalTab.literalList.get(i))) {
+			for(int i = 0; i < literalTab.label.size(); i++) {
+				if(tokenList.get(index).operand[0].contains(literalTab.label.get(i))) {
 					int addr = literalTab.locationList.get(i) - tokenList.get(index+1).location;
-					ob_code += addr;
+					code += addr;
 				}
 			}				
-			getToken(index).objectCode = String.format("%06X",ob_code);
+			getToken(index).objectCode = String.format("%06X",code);
 	}
 	}
 
@@ -138,12 +141,11 @@ class Token {
 	 * 
 	 * @param line 문장단위로 저장된 프로그램 코드.
 	 */
-	public void parsing(String line) {
-		operand = new String[3];
-		
-		if(line.contains(".")) { 
+	public void parsing(@NotNull String line) {
+		if(line.charAt(0) == '.') {
 			label = ""; 
-			operator = ""; 
+			operator = "";
+			comment = line;
 		}
 		else if(line.contains("LTORG")) {
 			label = line.split("\t")[0];
@@ -192,7 +194,7 @@ class Token {
 				String ifcomment = line.substring(idx+1);
 				int idx2 = ifcomment.indexOf("\t");
 				int idx3 = ifcomment.substring(idx2+1).indexOf("\t");
-				if(idx3 != -1) { //comment�� �ִ� ���
+				if(idx3 != -1) { 
 					comment = ifcomment.substring(idx2+1).substring(idx3+1);
 				}
 			}

@@ -1,12 +1,8 @@
-import java.util.HashMap;
+import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-<<<<<<< HEAD
-import java.io.BufferReader;
-=======
->>>>>>> ff8d1842b32e883bd334a3890a27d06792fe59a9
+import java.util.HashMap;
 
 
 /**
@@ -19,10 +15,8 @@ public class InstTable {
 	 */
 	HashMap<String, Instruction> instMap;
 
-<<<<<<< HEAD
+
 	//private int inst_index;
-=======
->>>>>>> ff8d1842b32e883bd334a3890a27d06792fe59a9
 	/**
 	 * 클래스 초기화. 파싱을 동시에 처리한다.
 	 * 
@@ -38,13 +32,12 @@ public class InstTable {
 	 * 입력받은 이름의 파일을 열고 해당 내용을 파싱하여 instMap에 저장한다.
 	 */
 	public void openFile(String fileName) {
-<<<<<<< HEAD
 		try {
 			File file = new File(fileName);
 			FileReader filereader = new FileReader(file);
-			BufferReader bufReader = new BufferReader(filereader);
+			BufferedReader bufReader = new BufferedReader(filereader);
 			String line = "";
-			while((line = bufReader.readLine()) != null){
+			while(null != (line = bufReader.readLine())){
                 Instruction temp = new Instruction(line);
 				instMap.put(temp.inst, temp);
             }
@@ -52,9 +45,6 @@ public class InstTable {
 		} catch (IOException e) {
 			System.out.println("There is errer" + e);
 		}
-=======
-		// ...
->>>>>>> ff8d1842b32e883bd334a3890a27d06792fe59a9
 	}
 
 	// get, set, search 등의 함수는 자유 구현
@@ -88,9 +78,9 @@ class Instruction {
 	 */
 	public void parsing(String line) {
 		try {
-			String[] split = line.split(" ")
+			String[] split = line.split(" ");
 			inst = split[0];
-			format = split[1];
+			format = Integer.valueOf(split[1]);
 			String t = split[2];
 			t = t.replaceFirst("0x","");
 			opcode = Integer.parseInt(t,16);
